@@ -80,14 +80,16 @@ class Elementor_Wallet_Checker_Widget extends \Elementor\Widget_Base {
             ]
         );
         
-        $this->add_control(
-            'container_background_color',
+        $this->add_group_control(
+            \Elementor\Group_Control_Background::get_type(),
             [
-                'label' => __('Background Color', 'wallet-checker'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#f5f7fa',
-                'selectors' => [
-                    '{{WRAPPER}} .wallet-checker-container' => 'background-color: {{VALUE}};',
+                'name' => 'container_background',
+                'label' => __('Background', 'wallet-checker'),
+                'types' => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .wallet-checker-container',
+                'default' => [
+                    'background' => 'classic',
+                    'color' => '#f5f7fa',
                 ],
             ]
         );
